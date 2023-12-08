@@ -2,7 +2,7 @@ const HistoryTable = ({ history }: { history: HistoryEntry[] }) => {
   const headers = ['Operand A', 'Operation', 'Operand B', 'Result'];
 
   return (
-    <div className="m-4 rounded-lg overflow-x-auto">
+    <div className="m-4 mt-2 rounded-lg overflow-x-auto">
       <table className="w-full text-sm text-left text-gray-500">
         <thead className="text-xs text-gray-900 uppercase bg-gray-50">
           <tr>

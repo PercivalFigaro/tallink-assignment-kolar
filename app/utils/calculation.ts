@@ -6,7 +6,7 @@ export function handleCalculate(
   let result: string | number = '';
   switch (operation) {
     case '+':
-      result = operandA + operandB;
+      result = parseFloat((operandA + operandB).toFixed(3));
       break;
     case '/':
       if (operandB === 0) {
