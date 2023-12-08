@@ -6,8 +6,9 @@ const Header = () => {
       <Image
         src="/tallink.svg"
         alt="Tallink company logo"
-        width={300}
-        height={400}
+        width="0"
+        height="0"
+        className="w-[320px] h-auto"
         priority
       />
     </div>

@@ -1,4 +1,8 @@
-import { findHighestPrimeBetween, isPrime } from '@/app/utils/primes';
+import {
+  findHighestPrimeBetween,
+  handleCalculate,
+  isPrime,
+} from '../../utils/calculation';
 
 describe('isPrime', () => {
   it('should return false for numbers less than 2', () => {
@@ -11,6 +15,7 @@ describe('isPrime', () => {
     expect(isPrime(3)).toBeTruthy();
     expect(isPrime(5)).toBeTruthy();
     expect(isPrime(7)).toBeTruthy();
+    expect(isPrime(2423)).toBeTruthy();
   });
 
   it('should not identify non-prime numbers', () => {
@@ -18,6 +23,7 @@ describe('isPrime', () => {
     expect(isPrime(6)).toBeFalsy();
     expect(isPrime(8)).toBeFalsy();
     expect(isPrime(9)).toBeFalsy();
+    expect(isPrime(2421)).toBeFalsy();
   });
 });
 
@@ -34,6 +40,34 @@ describe('findHighestPrimeBetween', () => {
 
   it('should work regardless of the order of arguments', () => {
     expect(findHighestPrimeBetween(20, 10)).toBe(19);
+    expect(findHighestPrimeBetween(232, 42.242)).toBe(229);
     expect(findHighestPrimeBetween(29, 14)).toBe(29);
+  });
+});
+
+describe('handleCalculate', () => {
+  it('adds two numbers correctly', () => {
+    const result = handleCalculate(3, 5, '+');
+    expect(result).toBe(8);
+  });
+
+  it('divides two numbers correctly', () => {
+    const result = handleCalculate(10, 2, '/');
+    expect(result).toBe(5);
+  });
+
+  it('divides floats correctly', () => {
+    const result = handleCalculate(242, 324, '/');
+    expect(result).toBe(0.747);
+  });
+
+  it('returns infinity when dividing by zero', () => {
+    const result = handleCalculate(5, 0, '/');
+    expect(result).toBe('∞');
+  });
+
+  it('calculates the remainder of division correctly', () => {
+    const result = handleCalculate(10, 4, '%');
+    expect(result).toBe(2);
   });
 });
